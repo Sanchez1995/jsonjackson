@@ -1,5 +1,7 @@
 package jacksonDeserialisation;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 public class RatesDTO {
@@ -23,6 +25,11 @@ public class RatesDTO {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+    public String getTimeStampValue() {
+        Date date = new Date(timestamp * 1000l);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return sdf.format(date);
     }
 
     public String getBase() {
